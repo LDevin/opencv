@@ -8,8 +8,16 @@ int main(int argc, const char** argv)
 {
     std::cout << "Hello World!\n"; 
 
+	/****
 	OpenCvSlave slave;
-	//slave.testImage("aa.jpg");
 	slave.roiImages("aa.jpg", "gg.png");
+	*****/
+
+	OpenCvSlave::testOpenCvImage("aa.jpg");
+	OpenCvSlave::accessPixelByPtr("aa.jpg");
+	OpenCvSlave::accessPixelByAt("aa.jpg");
+	OpenCvSlave::accessPixelByIter("aa.jpg");
+	OpenCvSlave::accessPixelByLUT("aa.jpg");
+
 	system("pause");
 }
