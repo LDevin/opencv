@@ -13,11 +13,13 @@ int main(int argc, const char** argv)
 	slave.roiImages("aa.jpg", "gg.png");
 	*****/
 
-	OpenCvSlave::testOpenCvImage("aa.jpg");
-	OpenCvSlave::accessPixelByPtr("aa.jpg");
-	OpenCvSlave::accessPixelByAt("aa.jpg");
-	OpenCvSlave::accessPixelByIter("aa.jpg");
-	OpenCvSlave::accessPixelByLUT("aa.jpg");
+// 	OpenCvSlave::testOpenCvImage("aa.jpg");
+// 	OpenCvSlave::accessPixelByPtr("aa.jpg");
+// 	OpenCvSlave::accessPixelByAt("aa.jpg");
+// 	OpenCvSlave::accessPixelByIter("aa.jpg");
+// 	OpenCvSlave::accessPixelByLUT("aa.jpg");
 
+	//OpenCvSlave::imageAffine("aa.jpg", -90.0);
+	OpenCvSlave::imageFlip("aa.jpg", 1);
 	system("pause");
 }

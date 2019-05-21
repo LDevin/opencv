@@ -1,5 +1,7 @@
-#include "OpenCvSlave.h"
+#include <Windows.h>
 #include <chrono>
+#include "OpenCvSlave.h"
+
 
 /****
 	*	@brief
@@ -245,6 +247,51 @@ void OpenCvSlave::accessPixelByLUT(const string& imgSrc)
 
 	imshow("lut image", dstImg);
 	imshow("normal", img);
+
+	waitKey();
+}
+
+void OpenCvSlave::imageAffine(const string& imgSrc, double angle, int type /* = 0 */)
+{
+	Mat img = imread(rootDir + imgSrc);
+	
+	Mat dst;
+
+	Point center(img.cols / 2, img.rows / 2);
+	Mat rotMat = getRotationMatrix2D(center, angle, 1.0);
+
+	warpAffine(img, dst, rotMat, img.size());
+	
+	imshow("rotate", dst);
+	imshow("normal", img);
+
+	waitKey();
+}
+
+/****
+*	@brief
+		f: 1, 0, -1
+***/
+
+void OpenCvSlave::imageFlip(const string& imgSrc, int f, int type /* = 0 */)
+{
+	Mat img = imread(rootDir + imgSrc);
+
+	Mat dst, temp;
+
+	transpose(img, temp);
+	flip(temp, dst, f);
+
+	imshow("rotate", dst);
+	imshow("normal", img);
+
+	CHAR currentPath[MAX_PATH];
+
+	DWORD dwCurDirPathLen;
+	dwCurDirPathLen = GetCurrentDirectoryA(MAX_PATH, currentPath);
+	cout << "当前目录为：" << currentPath << endl;
+
+	imwrite(string(currentPath) + "\\image.jpg", dst);
 
 	waitKey();
 }
