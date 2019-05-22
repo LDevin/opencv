@@ -45,6 +45,8 @@ public:
 	static void imageAffine(const string& imgSrc, double angle, int type = 0);
 
 	static void imageFlip(const string& imgSrc, int f = 0, int type = 0);
+	static void imageFlip180(const string& imgSrc);
+
 private:
 
 };

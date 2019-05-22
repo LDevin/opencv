@@ -20,6 +20,6 @@ int main(int argc, const char** argv)
 // 	OpenCvSlave::accessPixelByLUT("aa.jpg");
 
 	//OpenCvSlave::imageAffine("aa.jpg", -90.0);
-	OpenCvSlave::imageFlip("aa.jpg", 1);
+	OpenCvSlave::imageFlip180("aa.jpg");
 	system("pause");
 }

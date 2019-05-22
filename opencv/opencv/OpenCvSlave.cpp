@@ -295,3 +295,16 @@ void OpenCvSlave::imageFlip(const string& imgSrc, int f, int type /* = 0 */)
 
 	waitKey();
 }
+
+void OpenCvSlave::imageFlip180(const string& imgSrc)
+{
+	Mat img = imread(rootDir + imgSrc);
+
+	Mat dst;
+
+	flip(img, dst, -1);
+
+	imshow("rotate", dst);
+	imshow("normal", img);
+	waitKey();
+}
